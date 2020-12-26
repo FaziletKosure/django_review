@@ -9,6 +9,12 @@
   <h1>Student Detail</h1>
   {{student.number}} - {{student.first_name}} {{student.last_name}}
 
+  <a href="{% url 'fscohort:student_update' student.id %}">
+    <button>Update</button>
+</a>
+
+</body>
+
   <a href="{% url 'fscohort:student_delete' student.id %}">
       <button>Delete</button>
   </a>

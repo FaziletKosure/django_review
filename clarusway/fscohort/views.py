@@ -23,6 +23,8 @@ def student_num(request):
     # return HttpResponse("FS Cohort has {} students". format(num_of_stdnt))
     return render(request, 'fscohort/student_list.html', context)
 
+# Add a student Creat student
+
 
 def student_add(request):
     form = StudentForm()
@@ -41,6 +43,8 @@ def student_add(request):
     }
     return render(request, 'fscohort/student_add.html', context)
 
+# Detail a student
+
 
 def student_detail(request, id):
     student = Student.objects.get(id=id)
@@ -48,6 +52,25 @@ def student_detail(request, id):
         'student': student
     }
     return render(request, 'fscohort/student_detail.html', context)
+
+# Update a student
+
+
+def student_update(request, id):
+    obj = get_object_or_404(Student, id=id)
+    form = StudentForm(instance=obj)
+    if request.method == 'POST':
+        form = StudentForm(request.POST, instance=obj)
+        if form.is_valid():
+            form.save()
+            return redirect("fscohort:student_detail", id)
+    context = {
+        "student": obj,
+        "form": form
+    }
+    return render(request, "fscohort/student_add.html", context)
+
+#  Delete a student
 
 
 def student_delete(request, id):
