@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student List</title>
+</head>
+
+<body>
+    <ul>
+        {% for student in students %}
+        <!-- Display attributes of instance -->
+        <li>{{ student.first_name }} {{ student.last_name }}</li>
+        {% endfor %}
+
+    </ul>
+    <p>Total Students: {{ num }}</p>
+    <a href="{% url 'fscohort:student_add' %}">GO BACK</a>
+
+</body>
+
+</html>
