@@ -33,7 +33,8 @@ def student_add(request):
         if form.is_valid():
             form.save()
             html = "Student Succesfully added"
-            return HttpResponseRedirect(reverse('fscohort:student_num'))
+            # return HttpResponseRedirect(reverse('fscohort:student_num'))
+            return redirect('fscohort:student_num')
     context = {
         'form': form,
         'html': html
