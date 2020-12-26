@@ -1,7 +1,7 @@
 from .forms import StudentForm
 from .models import Student
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 
 # Create your views here.
@@ -48,3 +48,13 @@ def student_detail(request, id):
         'student': student
     }
     return render(request, 'fscohort/student_detail.html', context)
+
+
+def student_delete(request, id):
+    # student = get_object_or_404(Student,id=id)
+    student = Student.objects.get(id=id)
+    if request.method == 'POST':
+        student.delete()
+        return redirect('fscohort:student_num')
+
+    return render(request, "fscohort/student_delete.html")

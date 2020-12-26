@@ -6,12 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-  <h1>Student Detail</h1>
-  {{student.number}} - {{student.first_name}} {{student.last_name}}
+   <form action="" method="POST">
+       {% csrf_token%}
+       <input type="submit" value="Yes">
+       <a href="{% url 'fscohort:student_num' %}">Hayir</a>
 
-  <a href="{% url 'fscohort:student_delete' student.id %}">
-      <button>Delete</button>
-  </a>
-
+   </form> 
+    
 </body>
 </html>
