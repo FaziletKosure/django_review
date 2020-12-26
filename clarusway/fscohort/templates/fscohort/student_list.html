@@ -11,7 +11,9 @@
     <ul>
         {% for student in students %}
         <!-- Display attributes of instance -->
+        <a href="{% url 'fscohort:student_detail' student.id %}">
         <li>{{ student.first_name }} {{ student.last_name }}</li>
+    </a>
         {% endfor %}
 
     </ul>
