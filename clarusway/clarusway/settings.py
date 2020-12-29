@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'fscohort.apps.FscohortConfig'
+    'fscohort.apps.FscohortConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
