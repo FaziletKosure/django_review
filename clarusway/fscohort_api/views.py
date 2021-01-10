@@ -3,6 +3,15 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .serializers import StudentSerializer
 from fscohort.models import Student
+from django.http import JsonResponse
+
+
+def home_api(request):
+    data = {
+        "name": "Fazilet",
+        "address": "clarusway.com",
+        "skills": ["python", "django"]}
+    return JsonResponse(data)
 
 
 @api_view(['GET', 'POST'])
